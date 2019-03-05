@@ -108,4 +108,23 @@ function lastnameTar(array) {
     
 }
 
-console.log(lastnameTar(characters));
+// console.log(lastnameTar(characters));
+
+// allegianceHisto function creates a histogram of the houses 
+function allegianceHisto(array) {
+    let aHisto = {}
+
+    array.forEach(function (character){
+        for(let i = 0; i < character.allegiances.length; i++){
+            if(character.allegiances[i] in aHisto){
+                aHisto[character.allegiances[i]] += 1;
+            }
+            else {
+                aHisto[character.allegiances[i]] = 1;
+            }
+        }
+    })
+    return aHisto;
+}
+
+// console.log(allegianceHisto(characters));
