@@ -56,3 +56,56 @@ function mostTitles(array) {
 }
 
 // console.log(mostTitles(characters));
+
+// countVal function returns the number of people that are Valyrians
+function countVal(array) {
+    let count = 0;
+    array.forEach(function (character) {
+        if(character.culture == "Valyrian"){
+            count++;
+        }
+    })
+    return count;
+}
+
+// console.log(countVal(characters));
+
+// playHotPie function returns the actor name that plays HotPie
+function playHotPie(array) {
+    let hotPie;
+    array.forEach(function (character) {
+        if(character.name == "Hot Pie"){
+            hotPie = character.playedBy;
+        }
+    })
+    return hotPie;
+}
+
+// console.log(playHotPie(characters));
+
+// noTVDeal function returns the number of characters that were in the book but NOT in the TVShow
+function noTVDeal(array) {
+    let count = 0;
+    array.forEach(function (character) {
+        if(character.tvSeries.length < 2){
+            count++;
+        }
+    })
+    return count;
+}
+
+// console.log(noTVDeal(characters));
+
+// lastnameTar functions returns an array of charcaters with the last name Targaryen
+function lastnameTar(array) {
+    let result = array.filter(function (character){
+        return character.name.includes("Targaryen");
+    })
+    result = result.map(function (character){
+        return character.name;
+    })
+    return result;
+    
+}
+
+console.log(lastnameTar(characters));
