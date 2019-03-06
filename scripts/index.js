@@ -128,3 +128,26 @@ function allegianceHisto(array) {
 }
 
 // console.log(allegianceHisto(characters));
+
+// new Histogram function but with Map()
+function createHouseHistogram(array) {
+    const histogram = new Map(); // call the Map constructor
+
+    array.forEach(function (person) {
+        person.allegiances.forEach(function (house) {
+            // if the house is already in the map, increment
+            if(histogram.has(house)) {
+                // get the current value and re-set value for the key
+                const currentValue = histogram.get(house);
+                histogram.set(house, currentValue + 1);
+                // histogram.set(house, histogram.get(house) + 1);
+            }
+            else {  // else, add it to the map with a value of 1
+                histogram.set(house, 1);
+        }})
+    })
+
+    return histogram;
+}
+
+console.log(createHouseHistogram(characters));
